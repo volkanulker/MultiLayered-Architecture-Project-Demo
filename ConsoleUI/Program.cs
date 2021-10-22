@@ -46,7 +46,7 @@ namespace ConsoleUI
             EfProductDal efProductDal = new EfProductDal();
             ProductManager productManager = new ProductManager(efProductDal);
 
-            foreach (var product in productManager.GetProductDetails())
+            foreach (var product in productManager.GetProductDetails().Data)
             {
                 Console.WriteLine("[" +product.ProductId+ "] " + "["+ product.UnitsInStock+"] "
                     + "["+product.ProductName+"]"+ "[" + product.CategoryName + "]");

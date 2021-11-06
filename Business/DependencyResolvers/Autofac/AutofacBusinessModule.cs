@@ -21,6 +21,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance();
             builder.RegisterType<EfProductDal>().As<IProductDal>().SingleInstance();
 
+            builder.RegisterType<CategoryManager>().As<ICategoryService>().SingleInstance();
+            builder.RegisterType<EfCategoryDal>().As<ICategoryDal>().SingleInstance();
+
 
             // Check aspects in code and add interceptor
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

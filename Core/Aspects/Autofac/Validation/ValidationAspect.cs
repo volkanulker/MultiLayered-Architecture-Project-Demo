@@ -18,7 +18,7 @@ namespace Core.Aspects.Autofac.Validation
             // if type of validator is not a validator type throw exception
             if (!typeof(IValidator).IsAssignableFrom(validatorType))
             {
-                throw new System.Exception("It is not a confirmation class.");
+                throw new System.Exception("It is not a validator class.");
             }
 
             _validatorType = validatorType;
@@ -28,9 +28,9 @@ namespace Core.Aspects.Autofac.Validation
             // Reflection
             // Create instance of validator
             var validator = (IValidator)Activator.CreateInstance(_validatorType);
-            // Find type of validator
+            // Get type of validator
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];
-            // Find parameters of method
+            // Get Properties of given entity
             var entities = invocation.Arguments.Where(t => t.GetType() == entityType);
             // Traverse each item and validate with Validation Tool
             foreach (var entity in entities)

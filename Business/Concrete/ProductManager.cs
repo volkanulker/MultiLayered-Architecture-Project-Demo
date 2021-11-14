@@ -29,6 +29,9 @@ namespace Business.Concrete
             this.categoryService = categoryService;
         }
 
+        //Claim
+        //[SecuredOperation("product.add,admin")]
+        
         // Validate by rules in Product Validator
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
